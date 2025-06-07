@@ -11,8 +11,9 @@ import PhotosUI
 
 struct ContentView: View {
     var body: some View {
+        
         @StateObject private var networkMonitor = NetworkMonitor()
-        @State private var showSplash = true
+        @State var showSplash = true
         
         var body: some View {
             Group {
