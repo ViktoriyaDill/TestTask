@@ -10,7 +10,7 @@ import XCTest
 
 
 
-class MockAPIService: ObservableObject, APIServiceProtocol {
+class MockAPIService: ObservableObject{
     var shouldFailFetchUsers = false
         var shouldFailRegistration = false
         var registrationShouldReturnError: APIError?

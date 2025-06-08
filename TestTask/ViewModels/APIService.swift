@@ -42,7 +42,7 @@ class APIService: ObservableObject {
         
         let boundary = UUID().uuidString
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Token")
+        request.setValue(token, forHTTPHeaderField: "Token")
         
         var body = Data()
         
@@ -75,6 +75,9 @@ class APIService: ObservableObject {
         request.httpBody = body
         
         let (data, _) = try await URLSession.shared.data(for: request)
-        return try JSONDecoder().decode(RegistrationResponse.self, from: data)
+        debugPrint(data)
+        let response =  try JSONDecoder().decode(RegistrationResponse.self, from: data)
+        debugPrint(response)
+        return response
     }
 }
