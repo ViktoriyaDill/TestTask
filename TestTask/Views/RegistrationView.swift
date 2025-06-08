@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import UniformTypeIdentifiers
 
 
 struct RegistrationView: View {
@@ -19,6 +20,7 @@ struct RegistrationView: View {
     @State private var phone = ""
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var photoData: Data?
+    @State private var photoFilename: String?
     @State private var showPhotoPicker = false
     
     @State private var isLoading = false
@@ -43,9 +45,9 @@ struct RegistrationView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             TextField("Your name", text: $name)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .onChange(of: name) { _ in
-                                    validateName()
-                                }
+                                .overlay(RoundedRectangle(cornerRadius: 8).stroke(nameError.isEmpty ? Color.clear : Color.red, lineWidth: 2))
+                                   .foregroundColor(nameError.isEmpty ? .primary : .red)
+                                   .onChange(of: name) { _ in nameError = name.count < 2 && !name.isEmpty ? "Name too short" : "" }
                             
                             if !nameError.isEmpty {
                                 Text(nameError)
@@ -58,11 +60,11 @@ struct RegistrationView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             TextField("Email", text: $email)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .keyboardType(.emailAddress)
                                 .autocapitalization(.none)
-                                .onChange(of: email) { _ in
-                                    validateEmail()
-                                }
+                                .overlay(RoundedRectangle(cornerRadius: 8).stroke(emailError.isEmpty ? Color.clear : Color.red, lineWidth: 2))
+                                    .foregroundColor(emailError.isEmpty ? .primary : .red)
+                                    .keyboardType(.emailAddress)
+                                    .onChange(of: email) { _ in emailError = !email.contains("@") && !email.isEmpty ? "Invalid email" : "" }
                             
                             if !emailError.isEmpty {
                                 Text(emailError)
@@ -75,10 +77,10 @@ struct RegistrationView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             TextField("Phone", text: $phone)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .keyboardType(.phonePad)
-                                .onChange(of: phone) { _ in
-                                    validatePhone()
-                                }
+                                .overlay(RoundedRectangle(cornerRadius: 8).stroke(phoneError.isEmpty ? Color.clear : Color.red, lineWidth: 2))
+                                    .foregroundColor(phoneError.isEmpty ? .primary : .red)
+                                    .keyboardType(.phonePad)
+                                    .onChange(of: phone) { _ in phoneError = phone.count < 10 && !phone.isEmpty ? "Phone too short" : "" }
                             
                             Text("+38 (XXX) XXX - XX - XX")
                                 .font(.caption)
@@ -114,34 +116,36 @@ struct RegistrationView: View {
                         }
                         
                         // Photo upload
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Button("Upload your photo") {
-                                    showPhotoPicker = true
-                                }
-                                .padding()
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                )
+                        VStack(alignment: .leading, spacing: 8) {
+
+                            ZStack(alignment: .topTrailing) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.6), lineWidth: 1)
+                                    .frame(height: 56)
                                 
-                                Spacer()
-                                
-                                if photoData != nil {
-                                    Text("Upload")
-                                        .foregroundColor(.blue)
-                                } else {
-                                    Text("Upload")
-                                        .foregroundColor(.gray)
+                                HStack {
+                                    Text(photoFilename ?? "Upload your photo")
+                                        .foregroundColor(photoFilename == nil ? .gray : .primary)
+                                        .font(.system(size: 18))
+
+                                    Spacer()
+
+                                    Button("Upload") {
+                                        showPhotoPicker = true
+                                    }
+                                    .font(.system(size: 18, weight: .medium))
+                                    .foregroundColor(.cyan)
                                 }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical,16)
                             }
-                            
                             if !photoError.isEmpty {
                                 Text(photoError)
                                     .font(.caption)
                                     .foregroundColor(.red)
                             }
                         }
+
                         
                         // Sign up button
                         Button("Sign up") {
@@ -149,11 +153,11 @@ struct RegistrationView: View {
                                 await registerUser()
                             }
                         }
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: 140)
                         .padding()
-                        .background(isFormValid() ? Color.yellow : Color.gray)
+                        .background(isFormValid() ? Color(UIColor(hex: "#F4E041")) : Color(UIColor(hex: "#DEDEDE")))
                         .foregroundColor(.black)
-                        .cornerRadius(8)
+                        .cornerRadius(24)
                         .disabled(!isFormValid() || isLoading)
                         
                         if isLoading {
@@ -162,20 +166,32 @@ struct RegistrationView: View {
                     }
                     .padding()
                 }
-                .navigationTitle("Working with POST request")
-                .navigationBarTitleDisplayMode(.inline)
                 .task {
                     await loadPositions()
                 }
-                .photosPicker(isPresented: $showPhotoPicker, selection: $selectedPhoto, matching: .images)
+                .photosPicker(isPresented: $showPhotoPicker,
+                                  selection: $selectedPhoto,
+                                  matching: .images)
                 .onChange(of: selectedPhoto) { newItem in
+                    guard let item = newItem else { return }
                     Task {
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                            photoData = data
-                            validatePhoto()
+                        do {
+                            if let data = try await item.loadTransferable(type: Data.self) {
+                                await MainActor.run {
+                                    self.photoData = data
+                                    self.photoFilename = "photo.jpg"
+                                    validatePhoto()
+                                }
+                            }
+                        } catch {
+                            await MainActor.run {
+                                print("Photo load error:", error)
+                                self.photoError = "Failed to load photo"
+                            }
                         }
                     }
                 }
+
                 .alert("Error", isPresented: $showError) {
                     Button("OK") { }
                 } message: {
@@ -200,7 +216,7 @@ struct RegistrationView: View {
         if name.count < 2 || name.count > 60 {
             nameError = "Name should be 2-60 characters"
         } else {
-            nameError = ""
+            nameError = "Required field"
         }
     }
     
@@ -211,7 +227,7 @@ struct RegistrationView: View {
         if !emailPredicate.evaluate(with: email) {
             emailError = "Invalid email format"
         } else {
-            emailError = ""
+            emailError = "Required field"
         }
     }
     
@@ -222,7 +238,7 @@ struct RegistrationView: View {
         if !phonePredicate.evaluate(with: phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")) {
             phoneError = "Phone should start with +380 and contain 13 characters"
         } else {
-            phoneError = ""
+            phoneError = "Required field"
         }
     }
     
@@ -274,8 +290,9 @@ struct RegistrationView: View {
         } catch {
             DispatchQueue.main.async {
                 self.isLoading = false
-                self.errorMessage = "Registration failed. Please try again."
-                self.showError = true
+//                self.errorMessage = "Registration failed. Please try again."
+//                self.showError = true
+                ErrorView()
             }
         }
     }

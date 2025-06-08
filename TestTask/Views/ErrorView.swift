@@ -1,17 +1,17 @@
 //
-//  SuccessView.swift
+//  ErrorView.swift
 //  TestTask
 //
-//  Created by Пользователь on 07.06.2025.
+//  Created by Пользователь on 08.06.2025.
 //
 
 import SwiftUI
 
 
-struct SuccessView: View {
+struct ErrorView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Image(systemName: "success")
+            Image("deny")
                 .font(.system(size: 80))
                 .foregroundColor(.green)
             
@@ -19,7 +19,7 @@ struct SuccessView: View {
                 .font(.custom("NunitoSans", size: 20))
                 .multilineTextAlignment(.center)
             
-            Button("Got it") {
+            Button("Try again") {
                 // Handle navigation back
             }
             .frame(maxWidth: .infinity)

@@ -8,7 +8,28 @@
 import SwiftUI
 
 
-class EnhancedAPIService: ObservableObject {
+
+protocol APIServiceProtocol {
+    func fetchUsers(page: Int, count: Int) async throws -> UsersResponse
+    func fetchPositions() async throws -> PositionsResponse
+    func registerUser(name: String, email: String, phone: String, positionId: Int, photo: Data) async throws -> RegistrationResponse
+}
+
+
+class APIServiceFactory {
+    static var useMock = false
+    
+    static func create() -> APIServiceProtocol {
+        if useMock {
+            return MockAPIService()
+        } else {
+            return EnhancedAPIService.shared
+        }
+    }
+}
+
+
+class EnhancedAPIService: ObservableObject, APIServiceProtocol {
     static let shared = EnhancedAPIService()
     private let baseURL = "https://frontend-test-assignment-api.abz.agency/api/v1"
     private var cachedToken: String?

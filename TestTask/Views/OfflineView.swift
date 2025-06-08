@@ -1,5 +1,5 @@
 //
-//  SuccessView.swift
+//  OfflineView.swift
 //  TestTask
 //
 //  Created by Пользователь on 07.06.2025.
@@ -8,21 +8,20 @@
 import SwiftUI
 
 
-struct SuccessView: View {
+struct OfflineView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Image(systemName: "success")
+            Image(systemName: "wifi.slash")
                 .font(.system(size: 80))
-                .foregroundColor(.green)
+                .foregroundColor(.red)
             
-            Text("User successfully registered")
-                .font(.custom("NunitoSans", size: 20))
+            Text("There is no internet connection")
+                .font(.title2)
                 .multilineTextAlignment(.center)
             
-            Button("Got it") {
-                // Handle navigation back
+            Button("Try again") {
+                // Network monitor will automatically update when connection is restored
             }
-            .frame(maxWidth: .infinity)
             .padding()
             .background(Color.yellow)
             .foregroundColor(.black)

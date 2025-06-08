@@ -30,12 +30,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		528D50632DF4819400AAB06A /* Exceptions for "TestTask" folder in "TestTask" target */ = {
+		52BECA712DF5E753005CFB2D /* Exceptions for "TestTask" folder in "TestTask" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Resources/Info.plist,
 			);
 			target = 522B07AA2DF47BFD00DC4003 /* TestTask */;
+		};
+		52BECA772DF5F226005CFB2D /* Exceptions for "TestTask" folder in "TestTaskTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ViewModels/EnhancedAPIService.swift,
+			);
+			target = 522B07BA2DF47C0100DC4003 /* TestTaskTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -43,7 +50,8 @@
 		522B07AD2DF47BFD00DC4003 /* TestTask */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				528D50632DF4819400AAB06A /* Exceptions for "TestTask" folder in "TestTask" target */,
+				52BECA712DF5E753005CFB2D /* Exceptions for "TestTask" folder in "TestTask" target */,
+				52BECA772DF5F226005CFB2D /* Exceptions for "TestTask" folder in "TestTaskTests" target */,
 			);
 			path = TestTask;
 			sourceTree = "<group>";
@@ -408,7 +416,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TestTask/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestTask/Resources/Info.plist;
@@ -444,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TestTask/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestTask/Resources/Info.plist;

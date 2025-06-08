@@ -7,13 +7,10 @@
 
 import SwiftUI
 import Network
-import PhotosUI
 
 struct ContentView: View {
-    var body: some View {
-        
-        @StateObject private var networkMonitor = NetworkMonitor()
-        @State var showSplash = true
+    @StateObject private var networkMonitor = NetworkMonitor()
+        @State private var showSplash = true
         
         var body: some View {
             Group {
@@ -29,12 +26,12 @@ struct ContentView: View {
                 } else if !networkMonitor.isConnected {
                     OfflineView()
                 } else {
+                    MainNavTitle()
                     MainTabView()
                 }
             }
             .environmentObject(networkMonitor)
         }
-    }
 }
 
 #Preview {

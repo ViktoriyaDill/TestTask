@@ -17,46 +17,41 @@ struct UsersListView: View {
     @State private var hasError = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if users.isEmpty && isLoading {
-                    ProgressView("Loading users...")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if users.isEmpty && hasError {
-                    VStack {
-                        Image(systemName: "person.3")
-                            .font(.system(size: 60))
-                            .foregroundColor(.gray)
-                        Text("There are no users yet")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                    }
+        VStack {
+            if users.isEmpty && isLoading {
+                ProgressView("Loading users...")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else {
-                    List {
-                        ForEach(users) { user in
-                            UserRowView(user: user)
-                        }
-                        
-                        if currentPage < totalPages {
-                            ProgressView()
-                                .frame(maxWidth: .infinity)
-                                .onAppear {
-                                    loadMoreUsers()
-                                }
-                        }
-                    }
-                    .listStyle(PlainListStyle())
+            } else if users.isEmpty && hasError {
+                VStack {
+                    Image("group")
+                        .foregroundColor(.gray)
+                    Text("There are no users yet")
+                        .font(.custom("NunitoSans", size: 20))
+                        .foregroundColor(.black)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List {
+                    ForEach(users) { user in
+                        UserRowView(user: user)
+                    }
+                    
+                    if currentPage < totalPages {
+                        ProgressView()
+                            .frame(maxWidth: .infinity)
+                            .onAppear {
+                                loadMoreUsers()
+                            }
+                    }
+                }
+                .listStyle(PlainListStyle())
             }
-            .navigationTitle("Working with GET request")
-            .navigationBarTitleDisplayMode(.inline)
-            .task {
-                await loadUsers()
-            }
-            .refreshable {
-                await refreshUsers()
-            }
+        }
+        .task {
+            await loadUsers()
+        }
+        .refreshable {
+            await refreshUsers()
         }
     }
     

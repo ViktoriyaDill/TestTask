@@ -12,17 +12,17 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
-            Color.yellow
+            Color(UIColor(hex: "#F4E041"))
                 .ignoresSafeArea()
             
             VStack(spacing: 16) {             
                 Image("Cat")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60, height: 60)
+                    .frame(width: 95, height: 65)
                 
                 Text("TESTTASK")
-                    .font(.custom("NunitoSans-Bold", size: 20))
+                    .font(.custom("NunitoSans", size: 20))
                     .foregroundColor(.black)
             }
         }

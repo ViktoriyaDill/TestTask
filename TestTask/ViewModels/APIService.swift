@@ -13,6 +13,7 @@ class APIService: ObservableObject {
     static let shared = APIService()
     private let baseURL = "https://frontend-test-assignment-api.abz.agency/api/v1"
     
+    
     func fetchUsers(page: Int = 1, count: Int = 6) async throws -> UsersResponse {
         let url = URL(string: "\(baseURL)/users?page=\(page)&count=\(count)")!
         let (data, _) = try await URLSession.shared.data(from: url)
