@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5293139B2DF60A2800E155BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5293139A2DF60A2800E155BF /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		522B07BC2DF47C0100DC4003 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -37,13 +41,6 @@
 			);
 			target = 522B07AA2DF47BFD00DC4003 /* TestTask */;
 		};
-		52BECA772DF5F226005CFB2D /* Exceptions for "TestTask" folder in "TestTaskTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ViewModels/EnhancedAPIService.swift,
-			);
-			target = 522B07BA2DF47C0100DC4003 /* TestTaskTests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -51,19 +48,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				52BECA712DF5E753005CFB2D /* Exceptions for "TestTask" folder in "TestTask" target */,
-				52BECA772DF5F226005CFB2D /* Exceptions for "TestTask" folder in "TestTaskTests" target */,
 			);
 			path = TestTask;
-			sourceTree = "<group>";
-		};
-		522B07BE2DF47C0100DC4003 /* TestTaskTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TestTaskTests;
-			sourceTree = "<group>";
-		};
-		522B07C82DF47C0100DC4003 /* TestTaskUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TestTaskUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -73,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5293139B2DF60A2800E155BF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				522B07AD2DF47BFD00DC4003 /* TestTask */,
-				522B07BE2DF47C0100DC4003 /* TestTaskTests */,
-				522B07C82DF47C0100DC4003 /* TestTaskUITests */,
 				522B07AC2DF47BFD00DC4003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,6 +118,7 @@
 			);
 			name = TestTask;
 			packageProductDependencies = (
+				5293139A2DF60A2800E155BF /* Alamofire */,
 			);
 			productName = TestTask;
 			productReference = 522B07AB2DF47BFD00DC4003 /* TestTask.app */;
@@ -150,9 +136,6 @@
 			);
 			dependencies = (
 				522B07BD2DF47C0100DC4003 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				522B07BE2DF47C0100DC4003 /* TestTaskTests */,
 			);
 			name = TestTaskTests;
 			packageProductDependencies = (
@@ -173,9 +156,6 @@
 			);
 			dependencies = (
 				522B07C72DF47C0100DC4003 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				522B07C82DF47C0100DC4003 /* TestTaskUITests */,
 			);
 			name = TestTaskUITests;
 			packageProductDependencies = (
@@ -216,6 +196,9 @@
 			);
 			mainGroup = 522B07A22DF47BFD00DC4003;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 522B07AC2DF47BFD00DC4003 /* Products */;
 			projectDirPath = "";
@@ -589,6 +572,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5293139A2DF60A2800E155BF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 522B07A32DF47BFD00DC4003 /* Project object */;
 }

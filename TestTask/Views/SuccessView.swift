@@ -12,6 +12,7 @@ struct SuccessView: View {
     var body: some View {
         VStack(spacing: 20) {
             Image(systemName: "success")
+                .frame(width: 200, height: 200)
                 .font(.system(size: 80))
                 .foregroundColor(.green)
             

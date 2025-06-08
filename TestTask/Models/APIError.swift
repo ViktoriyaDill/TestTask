@@ -9,25 +9,22 @@ import SwiftUI
 
 
 enum APIError: LocalizedError {
-    case invalidURL
+    case networkError
     case invalidResponse
-    case decodingError(Error)
-    case networkError(Error)
-    case tokenExpired
+    case tokenError
+    case registrationFailed
     case validationError(String)
     
     var errorDescription: String? {
         switch self {
-        case .invalidURL:
-            return "Invalid URL"
+        case .networkError:
+            return "Network connection error"
         case .invalidResponse:
             return "Invalid response from server"
-        case .decodingError(let error):
-            return "Failed to decode data: \(error.localizedDescription)"
-        case .networkError(let error):
-            return "Network error: \(error.localizedDescription)"
-        case .tokenExpired:
-            return "Authentication token expired"
+        case .tokenError:
+            return "Authentication token error"
+        case .registrationFailed:
+            return "Registration failed. Please try again."
         case .validationError(let message):
             return message
         }
