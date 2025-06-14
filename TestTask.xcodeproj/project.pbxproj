@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5285B3902DFE023A0049E76C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5285B38F2DFE023A0049E76C /* IQKeyboardManagerSwift */; };
 		5293139B2DF60A2800E155BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5293139A2DF60A2800E155BF /* Alamofire */; };
 		52E9A68D2DF639D600D5DED6 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9A68C2DF639D600D5DED6 /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		522B07AB2DF47BFD00DC4003 /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TestTask.app; path = "/Users/macbookpro/Desktop/Interview/TestTask/build/Debug-iphoneos/TestTask.app"; sourceTree = "<absolute>"; };
+		5285B34D2DFE01660049E76C /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -43,6 +44,7 @@
 			files = (
 				5293139B2DF60A2800E155BF /* Alamofire in Frameworks */,
 				52E9A68D2DF639D600D5DED6 /* SwiftUIX in Frameworks */,
+				5285B3902DFE023A0049E76C /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				522B07AD2DF47BFD00DC4003 /* TestTask */,
+				5285B34D2DFE01660049E76C /* TestTask.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,9 +81,10 @@
 			packageProductDependencies = (
 				5293139A2DF60A2800E155BF /* Alamofire */,
 				52E9A68C2DF639D600D5DED6 /* SwiftUIX */,
+				5285B38F2DFE023A0049E76C /* IQKeyboardManagerSwift */,
 			);
 			productName = TestTask;
-			productReference = 522B07AB2DF47BFD00DC4003 /* TestTask.app */;
+			productReference = 5285B34D2DFE01660049E76C /* TestTask.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,6 +114,7 @@
 			packageReferences = (
 				529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				52E9A68B2DF639D600D5DED6 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				5285B38E2DFE023A0049E76C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 522B07A22DF47BFD00DC4003;
@@ -280,6 +285,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -317,6 +323,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -359,6 +366,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5285B38E2DFE023A0049E76C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.1;
+			};
+		};
 		529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -378,6 +393,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5285B38F2DFE023A0049E76C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5285B38E2DFE023A0049E76C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		5293139A2DF60A2800E155BF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */;
