@@ -8,7 +8,8 @@ A SwiftUI-based iOS application demonstrating user registration and management f
 
 Click on the image below to watch the screencast of the app on iPhone 13:
 
-[![Watch the screencast](https://drive.google.com/drive/folders/1LSOxYOQRh89BLYSJl6xUoAeF2EoRRQ53?usp=drive_link)
+[![Watch the screencast]](https://drive.google.com/drive/folders/1LSOxYOQRh89BLYSJl6xUoAeF2EoRRQ53?usp=drive_link)
+
 
 ---
 
