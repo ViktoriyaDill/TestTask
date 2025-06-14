@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-
 struct FormTextField: View {
     let placeholder: String
     @Binding var text: String
     let errorMessage: String
     var keyboardType: UIKeyboardType = .default
     var helperText: String? = nil
-    
+
+    @State private var isTouched = false
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             TextField(placeholder, text: $text)
@@ -23,18 +24,25 @@ struct FormTextField: View {
                 .background(Color.white)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(errorMessage.isEmpty ? Color.gray.opacity(0.5) : Color.red, lineWidth: 2)
+                        .stroke(
+                            (isTouched && !errorMessage.isEmpty)
+                                ? Color.red
+                                : Color.gray.opacity(0.5),
+                            lineWidth: 1
+                        )
                 )
-                .foregroundColor(errorMessage.isEmpty ? .primary : .red)
                 .keyboardType(keyboardType)
-            
-            if let helperText = helperText, errorMessage.isEmpty {
-                Text(helperText)
+                .onChange(of: text) { _ in
+                    isTouched = true
+                }
+
+            if let helper = helperText, errorMessage.isEmpty {
+                Text(helper)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            
-            if !errorMessage.isEmpty {
+
+            if isTouched && !errorMessage.isEmpty {
                 Text(errorMessage)
                     .font(.caption)
                     .foregroundColor(.red)

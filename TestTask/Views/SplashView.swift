@@ -12,7 +12,7 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
-            Color(UIColor(hex: "#F4E041"))
+            Color(hex: "#F4E041")
                 .ignoresSafeArea()
             
             VStack(spacing: 16) {             
@@ -22,7 +22,7 @@ struct SplashView: View {
                     .frame(width: 95, height: 65)
                 
                 Text("TESTTASK")
-                    .font(.custom("NunitoSans", size: 20))
+                    .font(.custom("NunitoSans", size: 40))
                     .foregroundColor(.black)
             }
         }

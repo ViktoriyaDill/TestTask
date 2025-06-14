@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5293139B2DF60A2800E155BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5293139A2DF60A2800E155BF /* Alamofire */; };
+		52E9A68D2DF639D600D5DED6 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9A68C2DF639D600D5DED6 /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5293139B2DF60A2800E155BF /* Alamofire in Frameworks */,
+				52E9A68D2DF639D600D5DED6 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +121,7 @@
 			name = TestTask;
 			packageProductDependencies = (
 				5293139A2DF60A2800E155BF /* Alamofire */,
+				52E9A68C2DF639D600D5DED6 /* SwiftUIX */,
 			);
 			productName = TestTask;
 			productReference = 522B07AB2DF47BFD00DC4003 /* TestTask.app */;
@@ -198,6 +201,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				52E9A68B2DF639D600D5DED6 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 522B07AC2DF47BFD00DC4003 /* Products */;
@@ -400,6 +404,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 239DJH6J58;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestTask/Resources/Info.plist;
@@ -416,7 +421,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "viktoriyadill-gmail.TestTask";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolPeople2.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -436,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 239DJH6J58;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestTask/Resources/Info.plist;
@@ -452,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "viktoriyadill-gmail.TestTask";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolPeople2.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -582,6 +588,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		52E9A68B2DF639D600D5DED6 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -589,6 +603,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 529313992DF60A2800E155BF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		52E9A68C2DF639D600D5DED6 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E9A68B2DF639D600D5DED6 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

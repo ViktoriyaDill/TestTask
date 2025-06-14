@@ -10,28 +10,30 @@ import Network
 
 struct ContentView: View {
     @StateObject private var networkMonitor = NetworkMonitor()
-        @State private var showSplash = true
-        
-        var body: some View {
-            Group {
-                if showSplash {
-                    SplashView()
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                withAnimation {
-                                    showSplash = false
-                                }
+    @State private var showSplash = true
+    @State private var isListView = true
+    
+    var body: some View {
+        Group {
+            if showSplash {
+                SplashView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                showSplash = false
                             }
                         }
-                } else if !networkMonitor.isConnected {
-                    OfflineView()
-                } else {
-                    MainNavTitle()
+                    }
+            } else if !networkMonitor.isConnected {
+                OfflineView()
+            } else {
+                VStack(spacing: 0) {
                     MainTabView()
                 }
             }
-            .environmentObject(networkMonitor)
         }
+        .environmentObject(networkMonitor)
+    }
 }
 
 #Preview {

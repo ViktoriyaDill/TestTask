@@ -9,11 +9,14 @@ import SwiftUI
 
 
 struct MainNavTitle: View {
+    
+    @State var request: String
+    
     var body: some View {
-        Text("Working with GET request")
+        Text("Working with \(request) request")
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color(UIColor(hex: "#F4E041")).frame(maxWidth: .infinity))
+            .background(Color(hex: "#F4E041").frame(maxWidth: .infinity))
             .font(.custom("NunitoSans", size: 20))
         Spacer()
     }

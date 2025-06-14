@@ -23,9 +23,8 @@ class RegistrationViewModel: ObservableObject {
     @Published var photoError = ""
     
     @Published var isLoading = false
-    @Published var showSuccess = false
-    @Published var errorMessage = ""
-    @Published var showError = false
+    @Published var showResult = false
+    @Published var registrationResult: RegistrationResult?
     
     private let networkService: NetworkServiceProtocol
     private let validationService: ValidationService
@@ -79,23 +78,23 @@ class RegistrationViewModel: ObservableObject {
     
     var isFormValid: Bool {
         return nameError.isEmpty && !name.isEmpty &&
-               emailError.isEmpty && !email.isEmpty &&
-               phoneError.isEmpty && !phone.isEmpty &&
-               photoError.isEmpty && photoData != nil &&
-               selectedPosition != nil
+        emailError.isEmpty && !email.isEmpty &&
+        phoneError.isEmpty && !phone.isEmpty &&
+        photoError.isEmpty && photoData != nil &&
+        selectedPosition != nil
     }
     
     func loadPositions() {
         networkService.fetchPositions()
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { completion in
-                    if case .failure(let error) = completion {
-                        print("Failed to load positions: \(error)")
-                    }
-                },
+                receiveCompletion: { completion in },
                 receiveValue: { [weak self] response in
                     self?.positions = response.positions
+                    
+                    if self?.selectedPosition == nil && !response.positions.isEmpty {
+                        self?.selectedPosition = response.positions.first
+                    }
                 }
             )
             .store(in: &cancellables)
@@ -107,7 +106,6 @@ class RegistrationViewModel: ObservableObject {
               let photo = photoData else { return }
         
         isLoading = true
-        errorMessage = ""
         
         let request = RegistrationRequest(
             name: name,
@@ -122,22 +120,29 @@ class RegistrationViewModel: ObservableObject {
             .sink(
                 receiveCompletion: { [weak self] completion in
                     self?.isLoading = false
+                    
                     if case .failure(let error) = completion {
-                        self?.errorMessage = error.localizedDescription
-                        self?.showError = true
+                        self?.registrationResult = .error(error.localizedDescription)
+                        self?.showResult = true
                     }
                 },
                 receiveValue: { [weak self] response in
                     if response.success {
-                        self?.showSuccess = true
+                        self?.registrationResult = .success
+                        self?.showResult = true
                         self?.resetForm()
                     } else {
-                        self?.errorMessage = response.message
-                        self?.showError = true
+                        self?.registrationResult = .error(response.message)
+                        self?.showResult = true
                     }
                 }
             )
             .store(in: &cancellables)
+    }
+    
+    func dismissResult() {
+        showResult = false
+        registrationResult = nil
     }
     
     private func resetForm() {
