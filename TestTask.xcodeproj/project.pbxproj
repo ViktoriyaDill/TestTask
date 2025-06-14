@@ -11,27 +11,8 @@
 		52E9A68D2DF639D600D5DED6 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9A68C2DF639D600D5DED6 /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		522B07BC2DF47C0100DC4003 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 522B07A32DF47BFD00DC4003 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 522B07AA2DF47BFD00DC4003;
-			remoteInfo = TestTask;
-		};
-		522B07C62DF47C0100DC4003 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 522B07A32DF47BFD00DC4003 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 522B07AA2DF47BFD00DC4003;
-			remoteInfo = TestTask;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		522B07AB2DF47BFD00DC4003 /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		522B07BB2DF47C0100DC4003 /* TestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		522B07C52DF47C0100DC4003 /* TestTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		522B07AB2DF47BFD00DC4003 /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TestTask.app; path = "/Users/macbookpro/Desktop/Interview/TestTask/build/Debug-iphoneos/TestTask.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,20 +46,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		522B07B82DF47C0100DC4003 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		522B07C22DF47C0100DC4003 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,18 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				522B07AD2DF47BFD00DC4003 /* TestTask */,
-				522B07AC2DF47BFD00DC4003 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		522B07AC2DF47BFD00DC4003 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				522B07AB2DF47BFD00DC4003 /* TestTask.app */,
-				522B07BB2DF47C0100DC4003 /* TestTaskTests.xctest */,
-				522B07C52DF47C0100DC4003 /* TestTaskUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,46 +83,6 @@
 			productReference = 522B07AB2DF47BFD00DC4003 /* TestTask.app */;
 			productType = "com.apple.product-type.application";
 		};
-		522B07BA2DF47C0100DC4003 /* TestTaskTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 522B07D22DF47C0100DC4003 /* Build configuration list for PBXNativeTarget "TestTaskTests" */;
-			buildPhases = (
-				522B07B72DF47C0100DC4003 /* Sources */,
-				522B07B82DF47C0100DC4003 /* Frameworks */,
-				522B07B92DF47C0100DC4003 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				522B07BD2DF47C0100DC4003 /* PBXTargetDependency */,
-			);
-			name = TestTaskTests;
-			packageProductDependencies = (
-			);
-			productName = TestTaskTests;
-			productReference = 522B07BB2DF47C0100DC4003 /* TestTaskTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		522B07C42DF47C0100DC4003 /* TestTaskUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 522B07D52DF47C0100DC4003 /* Build configuration list for PBXNativeTarget "TestTaskUITests" */;
-			buildPhases = (
-				522B07C12DF47C0100DC4003 /* Sources */,
-				522B07C22DF47C0100DC4003 /* Frameworks */,
-				522B07C32DF47C0100DC4003 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				522B07C72DF47C0100DC4003 /* PBXTargetDependency */,
-			);
-			name = TestTaskUITests;
-			packageProductDependencies = (
-			);
-			productName = TestTaskUITests;
-			productReference = 522B07C52DF47C0100DC4003 /* TestTaskUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,14 +95,6 @@
 				TargetAttributes = {
 					522B07AA2DF47BFD00DC4003 = {
 						CreatedOnToolsVersion = 16.2;
-					};
-					522B07BA2DF47C0100DC4003 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 522B07AA2DF47BFD00DC4003;
-					};
-					522B07C42DF47C0100DC4003 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 522B07AA2DF47BFD00DC4003;
 					};
 				};
 			};
@@ -204,33 +112,17 @@
 				52E9A68B2DF639D600D5DED6 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 522B07AC2DF47BFD00DC4003 /* Products */;
+			productRefGroup = 522B07A22DF47BFD00DC4003;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				522B07AA2DF47BFD00DC4003 /* TestTask */,
-				522B07BA2DF47C0100DC4003 /* TestTaskTests */,
-				522B07C42DF47C0100DC4003 /* TestTaskUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		522B07A92DF47BFD00DC4003 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		522B07B92DF47C0100DC4003 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		522B07C32DF47C0100DC4003 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,34 +139,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		522B07B72DF47C0100DC4003 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		522B07C12DF47C0100DC4003 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		522B07BD2DF47C0100DC4003 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 522B07AA2DF47BFD00DC4003 /* TestTask */;
-			targetProxy = 522B07BC2DF47C0100DC4003 /* PBXContainerItemProxy */;
-		};
-		522B07C72DF47C0100DC4003 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 522B07AA2DF47BFD00DC4003 /* TestTask */;
-			targetProxy = 522B07C62DF47C0100DC4003 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		522B07CD2DF47C0100DC4003 /* Debug */ = {
@@ -470,74 +335,6 @@
 			};
 			name = Release;
 		};
-		522B07D32DF47C0100DC4003 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "viktoriyadill-gmail.TestTaskTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestTask";
-			};
-			name = Debug;
-		};
-		522B07D42DF47C0100DC4003 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "viktoriyadill-gmail.TestTaskTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestTask";
-			};
-			name = Release;
-		};
-		522B07D62DF47C0100DC4003 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "viktoriyadill-gmail.TestTaskUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TestTask;
-			};
-			name = Debug;
-		};
-		522B07D72DF47C0100DC4003 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "viktoriyadill-gmail.TestTaskUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TestTask;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -555,24 +352,6 @@
 			buildConfigurations = (
 				522B07D02DF47C0100DC4003 /* Debug */,
 				522B07D12DF47C0100DC4003 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		522B07D22DF47C0100DC4003 /* Build configuration list for PBXNativeTarget "TestTaskTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				522B07D32DF47C0100DC4003 /* Debug */,
-				522B07D42DF47C0100DC4003 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		522B07D52DF47C0100DC4003 /* Build configuration list for PBXNativeTarget "TestTaskUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				522B07D62DF47C0100DC4003 /* Debug */,
-				522B07D72DF47C0100DC4003 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

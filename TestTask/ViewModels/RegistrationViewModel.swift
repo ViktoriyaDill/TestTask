@@ -21,6 +21,7 @@ class RegistrationViewModel: ObservableObject {
     @Published var emailError = ""
     @Published var phoneError = ""
     @Published var photoError = ""
+    @Published var positionsError = ""
     
     @Published var isLoading = false
     @Published var showResult = false
@@ -37,6 +38,7 @@ class RegistrationViewModel: ObservableObject {
         self.networkService = networkService
         self.validationService = validationService
         setupValidation()
+        loadPositions()
     }
     
     private func setupValidation() {

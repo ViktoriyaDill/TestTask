@@ -61,6 +61,9 @@ struct RegistrationView: View {
                         if viewModel.isLoading { ProgressView() }
                     }
                     .padding()
+                    .onAppear {
+                        viewModel.loadPositions()
+                    }
                 }
                 
                 .confirmationDialog(
